@@ -64,6 +64,12 @@ header {
   transition: background-color 1s, color 1s;
 }
 
+@media (min-width: 400px) {
+  .menu a {
+    padding: 10px 10px;
+  }
+}
+
 .menu a:active,
 .menu a:hover {
   background-color: teal;
