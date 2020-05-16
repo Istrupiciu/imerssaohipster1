@@ -64,10 +64,49 @@ header {
   transition: background-color 1s, color 1s;
 }
 
-@media (min-width: 400px) {
+@media (min-width: 1000px) {
   .menu a {
     padding: 10px 150px;
   }
+}
+
+@media (min-width: 599px) {
+  .menu a {
+    padding: 10px 50px;
+  }
+}
+
+@media (min-width: 800px) {
+  .menu a {
+    padding: 10px 80px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .menu a {
+    padding: 10px 160px;
+  }
+}
+
+@media (min-width: 2200px) {
+  .menu a {
+    padding: 100px 350px;
+  }
+
+.site-subtitle, 
+.site-title {
+font-size: 5cm;
+}
+
+.contato .icons {
+  font-size: 5cm;
+}
+
+.img-portfolio {
+  height: 480px;
+  width: 540px;
+}
+
 }
 
 .menu a:active,
