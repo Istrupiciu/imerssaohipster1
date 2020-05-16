@@ -127,7 +127,7 @@ a:hover {
 .titulo {
   transform: scale(0.2) translateY(50vh);
   opacity: 0;
-  animation: 1s ease 2s animacaoTitulo forwards;
+  animation: 1s ease 1s animacaoTitulo forwards;
 }
 
 @keyframes animacaoTitulo {
@@ -158,18 +158,56 @@ a:hover {
  line-height: 1.8em;
 }
 
+.sobre,
 .contato,
 .portfolio {
   padding: 2em;
   min-height: 100vh;
 }
 
+@media (min-width: 1200px) {
+  .conteiner {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.sobre h2,
 .contato h2,
 .portfolio h2 {
   font-family: 'Poppins', sans-serif;
   color: whitesmoke;
   margin-bottom: 1.5em;
   font-size: 2em;
+}
+
+.sobre p {
+  color: whitesmoke;
+  text-indent: 2em;
+  margin-bottom: 1.4em;
+  text-align: justify;
+}
+
+.sobre a {
+  color: whitesmoke;
+  text-decoration: underline;
+}
+
+@media (min-width: 300px){
+  .sobre p {
+    font-size: 15px;
+    text-align: justify;
+  }
+}
+
+.sobre .avatar {
+  float: right;
+  padding: 30px;
+}
+
+.sobre .avatar img {
+  clip-path: polygon(51% 0, 90% 23%, 90% 78%, 50% 100%, 10% 78%, 10% 25%);
 }
 
 .portfolio .grid {
@@ -202,6 +240,7 @@ a:hover {
   object-fit: cover;
   object-position: left bottom;
   transition: transform 500ms;
+  border-radius: 10px;
 }
 
 .img-portfolio:hover {
