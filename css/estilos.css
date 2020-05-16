@@ -46,6 +46,7 @@ header {
   position: fixed;
   width: 100vw;
   top: 0;
+  z-index: 1;
 }
 
 .menu ul {
@@ -60,16 +61,13 @@ header {
 .menu a {
   display: block;
   padding: 10px 150px;
-  transition: background-color 1000ms , color 1000ms;
+  transition: background-color 1s, color 1s;
 }
 
-.menu :active {
-  transition: text-shadow 1s
-}
-
-.menu a:hover{
+.menu a:active,
+.menu a:hover {
   background-color: teal;
-  color: white
+  color: white;
 }
 
 a {
@@ -78,7 +76,24 @@ a {
 }
 
 a:hover {
-  text-decoration: none;
+  text-decoration: underline;
+}
+
+.titulo {
+  transform: scale(0.2) translateY(50vh);
+  opacity: 0;
+  animation: 1s ease 2s animacaoTitulo forwards;
+}
+
+@keyframes animacaoTitulo {
+  from {
+    transform: scale(0.2) translateY(50vh);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
 }
 
 .site-subtitle, 
@@ -90,7 +105,6 @@ a:hover {
 .site-title {
   font-size: 4em;
   font-family: 'Abril Fatface', cursive;
-  
 }
 
 .site-subtitle {
@@ -99,31 +113,33 @@ a:hover {
  line-height: 1.8em;
 }
 
-.img-portfolio , .contato {
+.contato,
+.portfolio {
   padding: 2em;
-  height: 100vh;
+  min-height: 100vh;
 }
 
-.img-portfolio h2 {
+.contato h2,
+.portfolio h2 {
   font-family: 'Poppins', sans-serif;
   color: whitesmoke;
   margin-bottom: 1.5em;
   font-size: 2em;
 }
 
-.img-portfolio .grid-icons {
+.portfolio .grid {
   display: grid;
   gap: 2em;
 }
 
 @media (min-width: 560px) {
-  .img-portfolio .grid-icons {
+  .portfolio .grid {
     grid-template-columns: 240px 240px;
   }
 }
 
 @media (min-width: 880px) {
-  .img-portfolio .grid-icons {
+  .portfolio .grid {
     grid-template-columns: repeat(3, 260px);
     align-content: center;
     justify-content: center;
@@ -131,7 +147,7 @@ a:hover {
   }
 }
 
-.img-portfolio figure {
+.portfolio figure {
   text-align: center;
 }
 
@@ -140,23 +156,25 @@ a:hover {
   width: 240px;
   object-fit: cover;
   object-position: left bottom;
-  border-radius: 7%;
   transition: transform 500ms;
 }
 
-.img-portfolio :hover {
-  transform: scale(1.2);
+.img-portfolio:hover {
+  transform: scale(1.2) rotate(-2deg);
+}
+
+.contato .icons {
+  text-align: center;
 }
 
 .contato a {
   color: whitesmoke;
   font-size: 4em;
-};
-
-.contato a :active {
-  transition: text-shadow 1s
+  transition: text-shadow 1s;
 }
-.contato a :hover {
+
+.contato a:active,
+.contato a:hover  {
   text-decoration: none;
-  text-shadow: 10px 10px 50px gray;
+  text-shadow: 0px 0px 50px grey
 }
