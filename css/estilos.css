@@ -23,6 +23,8 @@ body {
 /* breakpoint */
 @media (min-width: 600px) {
   body {
+    background-attachment: fixed;
+    background-size: cover;
     font-size: 18px;
   }
 }
@@ -30,6 +32,7 @@ body {
 /* breakpoint */
 @media (min-width: 1200px) {
   body {
+   
     font-size: 20px;
   }
 }
@@ -60,53 +63,8 @@ header {
 
 .menu a {
   display: block;
-  padding: 10px 10px;
+  padding: 10px 150px;
   transition: background-color 1s, color 1s;
-}
-
-@media (min-width: 1000px) {
-  .menu a {
-    padding: 10px 150px;
-  }
-}
-
-@media (min-width: 599px) {
-  .menu a {
-    padding: 10px 50px;
-  }
-}
-
-@media (min-width: 800px) {
-  .menu a {
-    padding: 10px 80px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .menu a {
-    padding: 10px 160px;
-  }
-}
-
-@media (min-width: 2200px) {
-  .menu a {
-    padding: 100px 350px;
-  }
-
-.site-subtitle, 
-.site-title {
-font-size: 5cm;
-}
-
-.contato .icons {
-  font-size: 5cm;
-}
-
-.img-portfolio {
-  height: 480px;
-  width: 540px;
-}
-
 }
 
 .menu a:active,
@@ -127,7 +85,7 @@ a:hover {
 .titulo {
   transform: scale(0.2) translateY(50vh);
   opacity: 0;
-  animation: 1s ease 1s animacaoTitulo forwards;
+  animation: 1s ease 500ms animacaoTitulo forwards;
 }
 
 @keyframes animacaoTitulo {
@@ -166,10 +124,10 @@ a:hover {
 }
 
 @media (min-width: 1200px) {
-  .conteiner {
-    max-width: 1200px;
+  .container {
     margin-left: auto;
     margin-right: auto;
+    max-width: 1200px;
   }
 }
 
@@ -183,31 +141,37 @@ a:hover {
 }
 
 .sobre p {
-  color: whitesmoke;
-  text-indent: 2em;
+  color: white;
+  text-indent: 1.4em;
   margin-bottom: 1.4em;
   text-align: justify;
 }
 
+p {
+  display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
 .sobre a {
-  color: whitesmoke;
+  color: white;
   text-decoration: underline;
 }
 
-@media (min-width: 300px){
-  .sobre p {
-    font-size: 15px;
-    text-align: justify;
-  }
+.sobre a:hover {
+  background-color: cyan;
+  text-decoration: none;
+  color: magenta;
 }
 
 .sobre .avatar {
+  clip-path: polygon(40px 0px, 160px 0px, 200px 40px, 200px 200px, 40px 200px, 0px 160px, 0px 40px);
+  margin-left: 2em;
+  height: 100;
+  width: 100;
   float: right;
-  padding: 30px;
-}
-
-.sobre .avatar img {
-  clip-path: polygon(51% 0, 90% 23%, 90% 78%, 50% 100%, 10% 78%, 10% 25%);
 }
 
 .portfolio .grid {
@@ -230,22 +194,55 @@ a:hover {
   }
 }
 
+.flip-card {
+  height: 180px;
+  perspective: 1000px;
+}
+
+.flip-card:hover .card {
+  transform: rotateY(180deg);
+}
+
+.card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 3s;
+}
+
+.card-front, 
+.card-back {
+  backface-visibility: hidden;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.card-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, .7);
+  height: 180px;
+  width: 100%;
+  transform: rotateY(180deg);
+}
+
 .portfolio figure {
   text-align: center;
 }
 
 .img-portfolio {
   height: 180px;
-  width: 240px;
+  width: 100%;
   object-fit: cover;
   object-position: left bottom;
   transition: transform 500ms;
-  border-radius: 10px;
 }
 
-.img-portfolio:hover {
+/* .img-portfolio:hover {
   transform: scale(1.2) rotate(-2deg);
-}
+} */
 
 .contato .icons {
   text-align: center;
@@ -260,5 +257,5 @@ a:hover {
 .contato a:active,
 .contato a:hover  {
   text-decoration: none;
-  text-shadow: 0px 0px 25px grey
+  text-shadow: 0px 0px 10px rgba(255,255,255,.5);
 }
